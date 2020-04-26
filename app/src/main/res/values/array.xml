@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="성격검사유형">
+        <item>INTJ</item>//1
+        <item>INTP</item>//1
+        <item>ENTJ</item>//1
+        <item>ENTP</item>//1
+        <item>INFJ</item>//1
+        <item>INFP</item>//1
+        <item>ENFJ</item>//1
+        <item>ENFP</item>//1
+        <item>ISTJ</item>//1
+        <item>ISFJ</item>//1
+        <item>ESTJ</item>//1
+        <item>ESFJ</item>//1
+        <item>ISTP</item>//1
+        <item>ISFP</item>//1
+        <item>ESTP</item>//1
+        <item>ESFP</item>//1
+    </string-array>
+</resources>

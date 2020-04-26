@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10"
+    android:orientation="vertical"
+    tools:context=".Fragment3">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <Button
+        android:id="@+id/survey"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="설문을해주세요"
+        android:textSize="55sp" />
+
+    <FrameLayout
+        android:id="@+id/fragment3child"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+
+</LinearLayout>

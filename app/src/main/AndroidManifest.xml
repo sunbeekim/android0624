@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.go">
+    <!--에뮬레이터는 db 전송이 원활한데 apk추출 후 문제발생-->
+    <!--firebase sha1 키 등록-->
+    <!--cmd -> keytool -list -v -keystore 'keystore의 파일위치 및 이름-->
+    <!--톰캣과 오라클 포트포워딩-->
+    <!--java.io.IOException: Cleartext HTTP traffic to x.x.x.x not permitted-->
+    <!--android:usesCleartextTraffic="true" <- api28 이상부터 접근제한 됨 모든 http url에 대해 접근 허용-->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme">
+        <activity android:name = ".Firebase_test">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AfterActivity"/>
+    </application>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+</manifest>

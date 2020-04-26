@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_orange_dark"
+        android:gravity="center"
+        android:text="설문지 페이지"
+        android:textSize="55sp" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="8">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/person"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="성격검사" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:text="성격검사 결과를 선택해주세요." />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:entries="@array/성격검사유형" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/spinnertext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="선택 된 유형 : "
+                android:textSize="22sp" />
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문1"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton1_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton1_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton1_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton1_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문2"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton2_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton2_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton2_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton2_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문3"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton3_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton3_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton3_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton3_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문4"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton4_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton4_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton4_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton4_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView5"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문5"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton5_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton5_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton5_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton5_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView6"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문6"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton6_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton6_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton6_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton6_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView7"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문7"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton7_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton7_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton7_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton7_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView8"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문8"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton8_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton8_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton8_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton8_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView9"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문9"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton9_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton9_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton9_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton9_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView10"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문10"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton10_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton10_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton10_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton10_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView11"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문11"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton11_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton11_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton11_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton11_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+
+<!--            </RadioGroup>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textView12"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="설문12"-->
+<!--                android:textSize="13sp" />-->
+
+<!--            <RadioGroup-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:orientation="horizontal">-->
+
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton12_1"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton12_2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton12_3"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--                <RadioButton-->
+<!--                    android:id="@+id/radioButton12_4"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="매우 그렇지 않다"-->
+<!--                    android:textSize="10sp" />-->
+
+<!--            </RadioGroup>-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/surveyRecycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:gravity="bottom|center"
+                android:text="작성완료" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView999"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:color/holo_orange_dark"
+        android:textSize="55sp" />
+
+</LinearLayout>
