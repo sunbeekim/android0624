@@ -1,13 +1,9 @@
 package com.example.go;
 
-import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,7 +42,14 @@ public class SuperAdapter extends RecyclerView.Adapter<MyItemView>{
         }else if(holder instanceof ViewHolderSurvey){
             ViewHolderSurvey viewHolderSurvey = (ViewHolderSurvey) holder;
             viewHolderSurvey.onBind(items.get(position));
+            viewHolderSurvey.setOnViewHolderRadioClickListener(new OnViewHolderRadioClickListener() {
+                @Override
+                public void onViewHolderRadioClickListener() {
+                    Log.d("TAG","라디오버튼이 클릭 되었습니다.");
+                }
+            });
         }
+
     }
 
     @Override

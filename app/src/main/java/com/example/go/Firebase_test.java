@@ -60,6 +60,7 @@ public class Firebase_test extends AppCompatActivity { //로그인
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +68,8 @@ public class Firebase_test extends AppCompatActivity { //로그인
             }
         });
     }
+
+
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
@@ -88,6 +91,7 @@ public class Firebase_test extends AppCompatActivity { //로그인
             }
         }
     }
+
    // https://firebase.google.com/docs/auth/android/google-signin?hl=ko
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
 

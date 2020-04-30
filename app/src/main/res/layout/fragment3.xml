@@ -13,7 +13,9 @@
         android:id="@+id/survey"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:background="@android:color/holo_orange_dark"
         android:text="설문을해주세요"
+        android:textColor="#FFFFFF"
         android:textSize="55sp" />
 
     <FrameLayout

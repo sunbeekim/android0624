@@ -28,7 +28,8 @@ public class Fragment3 extends Fragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
     }
 
-
+    //https://nuggy875.tistory.com/7 시간 구하기
+    //https://d4emon.tistory.com/60
     SuperAdapter adapter_study;
     RecyclerView recyclerView;
     @Override
@@ -51,10 +52,9 @@ public class Fragment3 extends Fragment implements View.OnClickListener{
         recyclerView.setLayoutManager(layoutManager);
         adapter_study = new SuperAdapter(CaseSelected.STUDY);
         recyclerView.setAdapter(adapter_study);
-        String studyname;
-        int studyscore;
-        getData("학습법", "1"); //자동화 필요
-        getData("학습법", "2"); //자동화 필요
+        getSurveyCechk();
+        getData("학습법","1","sf", "88","987"); //자동화 필요 Fragment3_child 참고
+
 
 
 
@@ -65,8 +65,12 @@ public class Fragment3 extends Fragment implements View.OnClickListener{
        return fv3;
     }
 
-    private void getData(String studyname, String studyscore) {
-        DataType data = new DataType(studyname, studyscore);
+    private void getSurveyCechk() {
+
+    }
+
+    private void getData(String studyname, String studyadress, String mytype, String percent, String clicknum) {
+        DataType data = new DataType(studyname, studyadress, mytype, percent, clicknum);
         adapter_study.addItem(data);
     }
 
@@ -87,10 +91,16 @@ public class Fragment3 extends Fragment implements View.OnClickListener{
     private void setChildFragment(Fragment child){
         FragmentTransaction childF3 = getChildFragmentManager().beginTransaction();
 
-//        if(!child.isAdded()){
+        if(!child.isAdded()){
             childF3.replace(R.id.fragment3child, child); //프레임레이아웃
             childF3.addToBackStack(null);
             childF3.commit();
-//        }
+        }
+//        sAdded()를 사용하여 Fragment가 존재하는 지 확인 후 작업.
+//        FragmentTransaction 에 add(int containerViewId, Fragment, fragment) 를 사용하면
+//        버튼을 누를 때마다 계속 Fragment가 생겨나서
+//        replace(int containerViewId, Fragment, fragment) 하여 container가 재사용되도록 했다.
+//        addToBackStack(String name)을 호출하면 생성하는 childFragment 들이 차곡차곡 쌓여
+//        back 버튼을 누를 때마다 이전 Fragment로 순차적으로 돌아간다.
     }
 }

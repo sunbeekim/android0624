@@ -24,6 +24,7 @@ public class AfterActivity extends AppCompatActivity { //프래그먼트
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
 
+
 //        Intent intent = getIntent();
 //        String userId = intent.getStringExtra("userId");
         mAuth = FirebaseAuth.getInstance();
@@ -31,6 +32,13 @@ public class AfterActivity extends AppCompatActivity { //프래그먼트
         Bundle bundle = new Bundle();
         bundle.putString("userId",userId);
 
+        String sendmsg = "userId";
+        String result = userId; //자신이 보내고싶은 값을 보내시면됩니다
+        try{
+            String rst = new ConnectDB(sendmsg).execute(result,"userId").get();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 //https://fluorite94.tistory.com/29 프래그먼트 값 전달
 

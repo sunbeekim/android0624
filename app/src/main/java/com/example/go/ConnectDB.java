@@ -29,11 +29,25 @@ public class ConnectDB extends AsyncTask<String, Void, String> {
             conn.setRequestMethod("POST");
             OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
 
-            if(sendMsg.equals("vision_write")){
-                sendMsg = "vision_write="+strings[0]+"&type="+strings[1];
-            }else if(sendMsg.equals("vision_list")){
+            if(sendMsg.equals("survey1result")){ // 설문 1값 쓰기
+                sendMsg = "&type="+strings[0]+"&userid="+strings[1]+"&save="+strings[2]+"&count="+strings[3];
+            }else if(sendMsg.equals("survey1")){ // 설문1 불러오기
                 sendMsg = "&type="+strings[0];
             }
+            else if(sendMsg.equals("userid")){ //id값 지정 //fr_child getresult() //webtest survey1get
+                sendMsg = "&type="+strings[0]+"&userid="+strings[1];
+            }
+            else if(sendMsg.equals("survey1count")){//설문 된 값
+                sendMsg = "&type="+strings[0];
+            }else if(sendMsg.equals("survey1rc")){//설문 된 수 //surveyResultCount() //webtest surveyResultCount
+                sendMsg = "&type="+strings[0]+"&userid="+strings[1];
+            }else if(sendMsg.equals("typeresult")){//타입 입력
+                Log.d("typesum==>", strings[2]);
+                sendMsg = "&type="+strings[0]+"&userid="+strings[1]+"&typesum="+strings[2];
+            }
+
+
+
 //출처 https://coding-factory.tistory.com/31?category=758272
             osw.write(sendMsg);
             osw.flush();

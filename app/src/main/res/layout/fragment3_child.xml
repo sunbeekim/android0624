@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="10"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <TextView
         android:id="@+id/textView"
@@ -15,6 +16,13 @@
         android:gravity="center"
         android:text="설문지 페이지"
         android:textSize="55sp" />
+
+    <TextView
+        android:id="@+id/defalutV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -33,7 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="성격검사" />
+                android:background="	#FFDAB9"
+                android:text="성격검사하기" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,6 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="선택 된 유형 : "
                 android:textSize="22sp" />
 
@@ -640,12 +650,14 @@
         </androidx.recyclerview.widget.RecyclerView>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/surveyComplete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
-                android:gravity="bottom|center"
+                android:background="	#FFDAB9"
+                android:foregroundGravity="center"
+                android:gravity="center"
                 android:text="작성완료" />
 
         </LinearLayout>
