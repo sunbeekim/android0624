@@ -74,6 +74,8 @@ public class Fragment3_child extends Fragment implements View.OnClickListener{
         recyclerView.setAdapter(adapter_survey);
         getData(); //db
 
+
+
         //==================================================================================// 코드 정리 필요 어댑터 만들어야함
         //radiobutton 값 반환 후 db 입력
         //설문db의 row 값만큼 자동생성
@@ -112,7 +114,7 @@ public class Fragment3_child extends Fragment implements View.OnClickListener{
 
             int j = 1;
             for(int i = 0; i < cut/2; i++) {
-                DataType data = new DataType(i+1,""+j+"번째", oj[i + i + 1]);
+                DataType data = new DataType(i+1,""+j+"번", oj[i + i + 1]);
                 adapter_survey.addItem(data);
                 j++;
             }

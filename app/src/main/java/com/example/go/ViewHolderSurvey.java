@@ -65,7 +65,7 @@ public class ViewHolderSurvey extends MyItemView{
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton select = (RadioButton)itemView.findViewById(checkedId);
                 //select.isChecked();
-
+                onViewHolderRadioClickListener.onViewHolderRadioClickListener();
                 String s;
                 String save = "";
                 int count;
@@ -96,7 +96,7 @@ public class ViewHolderSurvey extends MyItemView{
                 }catch (Exception e){
                     e.printStackTrace();
                 }
-                onViewHolderRadioClickListener.onViewHolderRadioClickListener();
+
             }
         });
 

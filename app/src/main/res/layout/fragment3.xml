@@ -16,18 +16,61 @@
         android:background="@android:color/holo_orange_dark"
         android:text="설문을해주세요"
         android:textColor="#FFFFFF"
-        android:textSize="55sp" />
+        android:textSize="55sp"
+        android:visibility="visible" />
 
-    <FrameLayout
-        android:id="@+id/fragment3child"
+    <Button
+        android:id="@+id/surveycom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp"
+        android:background="@android:color/holo_orange_dark"
+        android:gravity="center"
+        android:text="설문 완료"
+        android:textColor="#FFFFFF"
+        android:textSize="55sp"
+        android:visibility="gone" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:id="@+id/fragment3child"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:background="@android:color/holo_orange_dark"
+                        android:textSize="55sp"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

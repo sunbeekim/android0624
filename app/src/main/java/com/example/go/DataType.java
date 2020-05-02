@@ -11,6 +11,7 @@ public class DataType extends MyItem{
     String surveyName;
     String surveyNum;
     int defalt;
+    int defalt2;
     public DataType(int defalt, String  surveyNum, String surveyName){
         this.surveyName = surveyName;
         this.surveyNum = surveyNum;
@@ -39,14 +40,24 @@ public class DataType extends MyItem{
         this.defalt = defalt;
     }
 
-    public DataType(String studyName, String studyadress, String mytype, String percent, String clicknum){
+    public DataType(int defalt2, String studyName, String studyadress, String mytype, String percent, String clicknum){
         this.studyName = studyName;
         this.mytype = mytype;
         this.percent = percent;
         this.clicknum = clicknum;
         this.studyadress = studyadress;
+        this.defalt2 = defalt2;
     }
-    public String getSudyadress(){
+    public void setDefalt2(int defalt2){
+        this.defalt2 = defalt2;
+    }
+    public int getDefalt2(){
+        return this.defalt2 = defalt2;
+    }
+    public void setStudyadress(String studyadress){
+        this.studyadress = studyadress;
+    }
+    public String getStudyadress(){
         return this.studyadress;
     }
     public void setClicknum(String clicknum){

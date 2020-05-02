@@ -42,21 +42,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="공부법 ->"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/studyadress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="  학습법 주소" />
+                        android:text="  학습법 주소"
+                        android:textSize="16sp"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/mytype"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="나의 유형" />
+                    android:text="나의 유형"
+                    android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -68,28 +70,32 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="추천율" />
+                        android:text="추천율"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/percent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="퍼센트" />
+                        android:text="퍼센트"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/studyView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="조회 수" />
+                        android:text="조회 수"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/clicknum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="클릭 수" />
+                        android:text="클릭 수"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
             </LinearLayout>

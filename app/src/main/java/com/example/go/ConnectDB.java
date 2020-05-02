@@ -42,8 +42,26 @@ public class ConnectDB extends AsyncTask<String, Void, String> {
             }else if(sendMsg.equals("survey1rc")){//설문 된 수 //surveyResultCount() //webtest surveyResultCount
                 sendMsg = "&type="+strings[0]+"&userid="+strings[1];
             }else if(sendMsg.equals("typeresult")){//타입 입력
-                Log.d("typesum==>", strings[2]);
                 sendMsg = "&type="+strings[0]+"&userid="+strings[1]+"&typesum="+strings[2];
+            }else if(sendMsg.equals("surveycheck")){//타입 입력
+                sendMsg = "&type="+strings[0]+"&userid="+strings[1];
+            }
+            else if(sendMsg.equals("studylist")){//
+                sendMsg = "&type="+strings[0];
+            }else if(sendMsg.equals("typeget")){//
+                sendMsg = "&type="+strings[0]+"&userid="+strings[1];
+            }
+            else if(sendMsg.equals("log")){//
+                sendMsg = "&type="+strings[0]+"&userid="+strings[1]+"&typesum="+strings[2]+"&count="+strings[3];
+            }
+            else if(sendMsg.equals("type_sum")){//
+                sendMsg = "&type="+strings[0]+"&typesum="+strings[1];
+            }
+            else if(sendMsg.equals("type_questions")){//
+                sendMsg = "&type="+strings[0]+"&typesum="+strings[1]+"&count="+strings[2];
+            }
+            else if(sendMsg.equals("type_log")){//
+                sendMsg = "&type="+strings[0]+"&typesum="+strings[1]+"&count="+strings[2];
             }
 
 
