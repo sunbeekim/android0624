@@ -5,7 +5,7 @@ android {
     buildToolsVersion '29.0.0'
     defaultConfig {
         applicationId "com.example.go"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -47,3 +47,4 @@ dependencies {
     //https://github.com/windwishers/RecyclerOverview/tree/0c7a80a17d2aa9299fecc4915322e570ea6f68bd
 
 }
+apply plugin: 'com.google.gms.google-services'

@@ -4,12 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="10"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="@android:color/holo_orange_dark"
@@ -18,7 +15,6 @@
         android:textSize="55sp" />
 
     <TextView
-        android:id="@+id/defalutV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -27,43 +23,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="8"
         android:orientation="vertical">
-
-        <Button
-            android:id="@+id/person"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="	#FFDAB9"
-            android:text="성격검사하기" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="6"
-                android:text="성격검사 결과를 선택해주세요." />
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:entries="@array/성격검사유형" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/spinnertext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="선택 된 유형 : "
-            android:textSize="22sp" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -72,32 +37,132 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/surveyRecycle"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                   >
+                    android:text="나와 잘 맞는 첫번째 학습법은?"
+                    android:textSize="20sp" />
 
-                </androidx.recyclerview.widget.RecyclerView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinner2"
+                        android:entries="@array/학습법목록"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/spinnerInt1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="나와 잘 맞는 두번째 학습법은?"
+                    android:textSize="20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinner3"
+                        android:entries="@array/학습법목록"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/spinnerInt2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="TextView"
+                        android:visibility="invisible" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="나의 학습법 열람 주기는?"
+                    android:textSize="20sp" />
+
+                <RadioGroup
+                    android:id="@+id/rg2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/radioButton5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="주 1~2회" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="주 3~4회" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="주 5회 이상" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="추가하고 싶은 학습법을 적어주세요."
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/edit1"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="개선되었으면 하는 점을 적어주세요."
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/edit2"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/surveyComplete"
+        android:id="@+id/survey2Complete"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_gravity="bottom"
+        android:layout_weight="1"
         android:background="	#FFDAB9"
         android:foregroundGravity="center"
         android:gravity="center"
         android:text="작성완료" />
 
     <TextView
-        android:id="@+id/textView999"
+        android:id="@+id/textView9992"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@android:color/holo_orange_dark"

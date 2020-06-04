@@ -1,36 +1,32 @@
 package com.example.go;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.util.Log;
+
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.widget.LinearLayout;
+
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.google.firebase.auth.FirebaseAuth;
 
-public class ViewHolderRoom extends MyItemView{
-    TextView chatName, lastContext, userCount;
 
+public class ViewHolderChat extends MyItemView{
+    TextView username, chatcontext, chatdate, chatcontextme, chatdateme, userid;
+    LinearLayout yourchat, mechat;
     DataType data;
 
 
 
-    public ViewHolderRoom(@NonNull View itemView) {
+    public ViewHolderChat(@NonNull View itemView) {
         super(itemView);
-
-        chatName = itemView.findViewById(R.id.chatName);
-        lastContext = itemView.findViewById(R.id.lastContext);
-        userCount = itemView.findViewById(R.id.userCount);
-
+        username = itemView.findViewById(R.id.userName);
+        chatcontext = itemView.findViewById(R.id.chatContext);
+        chatdate = itemView.findViewById(R.id.chatDate);
+        chatcontextme = itemView.findViewById(R.id.chatContextMe);
+        chatdateme = itemView.findViewById(R.id.chatDateMe);
+        yourchat = itemView.findViewById(R.id.yourchat);
+        mechat = itemView.findViewById(R.id.mechat);
+        userid = itemView.findViewById(R.id.userid);
 
     }
 
@@ -47,42 +43,40 @@ public class ViewHolderRoom extends MyItemView{
             this.count = count;
         }
     }
+
     private String checkSurvey() {
-    String checkSurvey = null;
+        String checkSurvey = null;
 
-    return checkSurvey;
+        return checkSurvey;
     }
-    OnViewHolderRoomClickListener onViewHolderRoomClickListener = null;
 
-    public void setOnViewHolderRoomClickListener(OnViewHolderRoomClickListener onViewHolderRoomClickListener) {
-        this.onViewHolderRoomClickListener = onViewHolderRoomClickListener;
-    }
+
+
+
 
     public void onBind(MyItem data) {
         this.data = (DataType) data;
-        chatName.setText(this.data.getChatName());
-        lastContext.setText(this.data.getChatLastContext());
-        userCount.setText(String.valueOf(this.data.getUserCount()));
+
+        username.setText(this.data.getUserName());
+        chatcontext.setText(this.data.getChatContext());
+        chatdate.setText(this.data.getChatDate());
+        chatcontextme.setText(this.data.getChatContext());
+        chatdateme.setText(this.data.getChatDate());
+        userid.setText(this.data.getUserid());
+        int count = this.data.getCount();
 
 
+        String userid2 = this.data.getUserid();
 
+        if(UserInfo.userid.equals(userid2)){
+           yourchat.setVisibility(View.GONE);
+        }else{
+            mechat.setVisibility(View.GONE);
+        }
 
-        FirebaseAuth mAuth;
-        mAuth = FirebaseAuth.getInstance();
-        final String userid = mAuth.getCurrentUser().getUid();
+                //userid == myid mechat = GONE
+                //else yourchat = GONE
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-                onViewHolderRoomClickListener.onViewHolderRoomClickListener(v);
-                Context context = v.getContext();
-                //chatid 받아서 넘겨주기
-                String chatid = "VKM2QKLOHGMRRN1WXJVQBIMN4CC21";
-
-            }
-        });
     }
 
 }

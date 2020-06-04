@@ -18,4 +18,27 @@
         <item>ESTP</item>//1
         <item>ESFP</item>//1
     </string-array>
+
+    <string-array name="학습법목록">
+
+        <item>Metaccognition</item>
+        <item>PQ4R</item>
+        <item>SR</item>
+        <item>Slow in and Fast out</item>
+        <item>Acceleration</item>
+        <item>Grid Note</item>
+        <item>Dispersion</item>
+        <item>Havruta</item>
+        <item>SQ3R</item>
+        <item>Project Quotient</item>
+        <item>Syllabus</item>
+        <item>Half study</item>
+        <item>Self Directed</item>
+        <item>blue pen</item>
+        <item>paper</item>
+        <item>immersion</item>
+        <item>Wu Xing</item>
+        <item>Effective learning</item>
+        <item>Best way to learn</item>
+    </string-array>
 </resources>

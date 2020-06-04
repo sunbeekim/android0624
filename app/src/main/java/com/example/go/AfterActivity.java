@@ -1,12 +1,10 @@
 package com.example.go;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,37 +17,32 @@ public class AfterActivity extends AppCompatActivity { //프래그먼트
     Fragment3 fragment3;
     private FirebaseAuth mAuth ;
 
+
+    String Id;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_main);
 
-
-//        Intent intent = getIntent();
-//        String userId = intent.getStringExtra("userId");
         mAuth = FirebaseAuth.getInstance();
         String userId = mAuth.getUid();
-        Bundle bundle = new Bundle();
-        bundle.putString("userId",userId);
+        UserInfo.userid = userId;
 
-        String sendmsg = "userId";
-        String result = userId; //자신이 보내고싶은 값을 보내시면됩니다
-        try{
-            String rst = new ConnectDB(sendmsg).execute(result,"userId").get();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+
+//        Bundle bundle = new Bundle();
+//        bundle.putString("userId",userId);
+//        String sendmsg = "userId";
+//        String result = userId; //자신이 보내고싶은 값을 보내시면됩니다
+
 
 //https://fluorite94.tistory.com/29 프래그먼트 값 전달
-
 
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
-        fragment1.setArguments(bundle);
-        fragment2.setArguments(bundle);
-        fragment3.setArguments(bundle);
+
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
 
@@ -74,6 +67,8 @@ public class AfterActivity extends AppCompatActivity { //프래그먼트
                     }
                 }
         );
+
+
     }
 
     @Override
@@ -102,4 +97,6 @@ public class AfterActivity extends AppCompatActivity { //프래그먼트
         FirebaseAuth.getInstance().signOut();
 
     }
+
+
 }

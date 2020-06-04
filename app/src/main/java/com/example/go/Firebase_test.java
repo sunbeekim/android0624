@@ -123,7 +123,7 @@ public class Firebase_test extends AppCompatActivity { //로그인
     }
 
 
-    public static String getLocalIpAddress() {
+    public static String getLocalIpAddress() { //자신의 ip주소 확인
         try {
             for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
                 NetworkInterface intf = en.nextElement();

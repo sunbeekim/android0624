@@ -1,7 +1,5 @@
 package com.example.go;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,35 +13,35 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 //tab2 서비스 구현
-public class Fragment1_Dialog1 extends DialogFragment implements View.OnClickListener{
-    Fragment1_Dialog1(){
+public class Fragment1_Dialog2 extends DialogFragment implements View.OnClickListener{
+    Fragment1_Dialog2(){
 
     }
     Fragment fragment;
     String userid;
-    EditText chid, uname;
+    EditText chatname, uname;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View d1 = inflater.inflate(R.layout.c_n_dialogset, container, false);
-        EditText chid;
-        EditText uname;
-        chid = (EditText) d1.findViewById(R.id.roomCode);
-        uname = (EditText) d1.findViewById(R.id.setName);
+        View d1 = inflater.inflate(R.layout.n_dialogset, container, false);
+        EditText chatname, uname;
+
+        chatname = (EditText) d1.findViewById(R.id.chatName);
+        uname = (EditText) d1.findViewById(R.id.setName2);
 
 
-        this.chid = chid;
+        this.chatname = chatname;
         this.uname = uname;
-        Bundle bundle = getArguments();
-        String userid = bundle.getString("userid");
-        this.userid = userid;
-        Log.d("chatid : ", userid);
+        //Bundle bundle = getArguments();
+        //String userid = bundle.getString("userid");
+        this.userid = UserInfo.userid;
+        Log.d("userid : ", userid);
         Button done, cancel;
-        done = (Button)d1.findViewById(R.id.done);
+        done = (Button)d1.findViewById(R.id.done2);
         done.setOnClickListener(this);
-        cancel = (Button)d1.findViewById(R.id.cancel);
+        cancel = (Button)d1.findViewById(R.id.cancel2);
         cancel.setOnClickListener(this);
-        fragment = getActivity().getSupportFragmentManager().findFragmentByTag("tag");
+        fragment = getActivity().getSupportFragmentManager().findFragmentByTag("tag2");
 
         return d1;
     }
@@ -51,17 +49,17 @@ public class Fragment1_Dialog1 extends DialogFragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.done :
+            case R.id.done2 :
                 //conn chat
                 //chatinfo input +1 usercount
                 //userinfo input userid, chatid, username, ct, chatcount
-                String sendmsg = "userinfo";
-                String chatid, username;
-                chatid = chid.getText().toString();
+                String sendmsg = "chatmake";
+                String chatName, username;
+                chatName = chatname.getText().toString();
                 username = uname.getText().toString();
                 try{
-                    String result = new ConnectDB(sendmsg).execute("userinfo", userid, chatid, username).get();
-                    Log.d("data : ", userid+chatid+username);
+                    String result = new ConnectDB(sendmsg).execute("chatmake", userid, chatName, username).get();
+                    Log.d("data : ", userid+chatName+username);
                     Toast.makeText(getContext(), result, Toast.LENGTH_LONG).show();
                     
                     dismiss();
@@ -70,7 +68,7 @@ public class Fragment1_Dialog1 extends DialogFragment implements View.OnClickLis
                 }
 
                 break;
-            case R.id.cancel:
+            case R.id.cancel2:
                     DialogFragment dialogFragment = (DialogFragment) fragment;
                     dialogFragment.dismiss();
                 break;

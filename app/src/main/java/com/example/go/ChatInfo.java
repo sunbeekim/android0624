@@ -1,8 +1,11 @@
 package com.example.go;
 
-public class UserInfo {
-    public static String userid;
-    public static String typesum;
-    public static String respon;
-    public static String survey_position = "";
+
+public class ChatInfo {
+    public static String chatid_1;
+    public static String chatid_2;
+    public static int chatnum = 0;
+    public static String chatpos;
+    public static String chatname_1;
+    public static String chatname_2;
 }

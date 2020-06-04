@@ -14,22 +14,18 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/addRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RoomMake" />
-
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="9"
-            android:inputType="textPersonName" />
+            android:layout_weight="1"
+            android:text="RoomConn" />
 
         <Button
+            android:id="@+id/makeRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="RoomConn" />
+            android:layout_weight="1"
+            android:text="RoomMake" />
     </LinearLayout>
 
     <LinearLayout
@@ -38,12 +34,41 @@
         android:layout_weight="8"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/fm1"
+        <FrameLayout
+            android:id="@+id/fragment1child"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="첫번째 탭"
-            android:textSize="55sp" />
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewRoom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"
+                    android:background="@android:color/holo_orange_dark"
+                    android:textSize="55sp"
+                    android:visibility="invisible" />
+
+            </LinearLayout>
+
+        </FrameLayout>
     </LinearLayout>
 
 </LinearLayout>

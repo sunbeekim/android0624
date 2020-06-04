@@ -1,5 +1,7 @@
 package com.example.go;
 
+import java.util.Date;
+
 public class DataType extends MyItem{
     String studyName;
     //String clickname;
@@ -52,7 +54,7 @@ public class DataType extends MyItem{
         this.defalt2 = defalt2;
     }
     public int getDefalt2(){
-        return this.defalt2 = defalt2;
+        return this.defalt2;
     }
     public void setStudyadress(String studyadress){
         this.studyadress = studyadress;
@@ -87,11 +89,76 @@ public class DataType extends MyItem{
         this.studyName = studyName;
     }
 
-//    public String getStudyScore(){
-//        return studyScore;
-//    }
-//
-//    public void setStudyScore(String studyScore){
-//        this.studyScore = studyScore;
-//    }
+    //===========================================================================================================//
+    String userName, chatContext, userid, chatDate;
+    int count;
+    public DataType(int count, String userid, String userName, String chatContext, String chatDate){
+        this.userName = userName;
+        this.chatContext = chatContext;
+        this.chatDate = chatDate;
+        this.userid = userid;
+        this.count = count;
+    }
+    int getCount(){
+        return  this.count;
+    }
+    void setCount(int count){
+        this.count = count;
+    }
+    String getUserName(){
+        return this.userName;
+    }
+    void setUserName(String userName){
+        this.userName = userName;
+    }
+
+    String getChatContext(){
+        return this.chatContext;
+    }
+
+    void setChatContext(String chatContext){
+        this.chatContext = chatContext;
+    }
+
+    String getChatDate(){
+        return this.chatDate;
+    }
+    //===========================================================================================================//
+    void setChatDate(String chatDate){
+        this.chatDate = chatDate;
+    }
+    String chatName, chatLastContext;
+    int userCount;
+    DataType(String chatName, String chatLastContext, int userCount){
+        this.chatName = chatName;
+        this.chatLastContext = chatLastContext;
+        this.userCount = userCount;
+
+    }
+    String getUserid(){
+        return  this.userid;
+    }
+    void setUserid(String userid){
+        this.userid = userid;
+    }
+    String getChatName(){
+        return this.chatName;
+    }
+    void setChatName(String chatName){
+        this.chatName = chatName;
+    }
+    String getChatLastContext(){
+        return this.chatLastContext;
+    }
+    void setChatLastContext(String chatLastContext){
+        this.chatLastContext = chatLastContext;
+    }
+    int getUserCount(){
+        return this.userCount;
+    }
+    void setUserCount(int userCount){
+        this.userCount = userCount;
+    }
+    //===========================================================================================================//
+
 }
