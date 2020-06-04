@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_orange_dark"
+        android:gravity="center"
+        android:text="설문지 페이지"
+        android:textSize="55sp" />
+
+    <TextView
+        android:id="@+id/defalutV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/person"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="	#FFDAB9"
+            android:text="성격검사하기" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:text="성격검사 결과를 선택해주세요." />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:entries="@array/성격검사유형" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/spinnertext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="선택 된 유형 : "
+            android:textSize="22sp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/surveyRecycle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   >
+
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/surveyComplete"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="bottom"
+        android:background="	#FFDAB9"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="작성완료" />
+
+    <TextView
+        android:id="@+id/textView999"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:color/holo_orange_dark"
+        android:textSize="55sp" />
+
+</LinearLayout>
