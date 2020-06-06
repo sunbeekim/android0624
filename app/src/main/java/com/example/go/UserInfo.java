@@ -10,6 +10,6 @@ public class UserInfo {
     public static String type1;
     public static String type2;
     public static String type3;
-    public static String return4;
+    public static String timecheck;
     public static String return5;
 }

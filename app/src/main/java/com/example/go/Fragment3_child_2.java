@@ -101,7 +101,13 @@ public class Fragment3_child_2 extends Fragment{
                 addedit1 = edit1.getText().toString();
                 fixedit2 = edit2.getText().toString();
                 Log.d("클릭 시", study1+"\t"+study2+"\t"+rgbutton+"\t"+addedit1+"\t"+fixedit2);
-
+                if(rgbutton == null){
+                    rgbutton = "값이 입력되지 않음";
+                }if(addedit1.equals("")){
+                    addedit1 = "값이 입력되지 않음";
+                }if (fixedit2.equals("")){
+                    fixedit2 = "값이 입력되지 않음";
+                }
                 String survey2result = UserInfo.userid+"--"+study1+"--"+study2+"--"+rgbutton+"--"+addedit1+"--"+fixedit2;
                 try {
 
@@ -110,7 +116,7 @@ public class Fragment3_child_2 extends Fragment{
                     sendmsg = "survey2result";
                     new ConnectDB(sendmsg).execute("survey2result", survey2result).get();
                     UserInfo.survey_position = "2";
-
+                    UserInfo.timecheck = "설문2완료";
                 }catch (Exception e){
 
                 }

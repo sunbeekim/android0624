@@ -71,10 +71,19 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
             }
        // }
         if(UserInfo.usertypesum != null) {
-            if (getcheck() == 1) {
-                surveycom.setVisibility(GONE);
-                survey2.setVisibility(View.VISIBLE);
-            }
+            Log.d("userinfotypesum", UserInfo.usertypesum);
+            //if(UserInfo.timecheck == null) {
+                if (getcheck() == 1 ) {
+                    surveycom.setVisibility(GONE);
+                    survey2.setVisibility(View.VISIBLE);
+
+                }
+        }
+           // }
+        if (UserInfo.timecheck != null) {
+            Log.d("userinfotime", UserInfo.timecheck);
+            surveycom.setVisibility(View.VISIBLE);
+            survey2.setVisibility(GONE);
         }
 
         return fv3;
@@ -116,7 +125,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
             Calendar cal = Calendar.getInstance();
             cal.setTime(mDate);////---------
             //cal.add(Calendar.MONTH, +5);
-            cal.add(Calendar.MINUTE, -1); //-30분
+            //cal.add(Calendar.MINUTE, -1); //-30분
             today = simpleDateFormat.format(cal.getTime());
 
 //========================================//
@@ -145,6 +154,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
                 Log.d("compare : ", compare+"");
                 if (compare > 0) { //compare이 양수라면 1을 반환
                     icheck = 1;
+
                 } else {
                     icheck = 0;//설문 필요
                 }
@@ -197,6 +207,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
         float percent = 0;
         int j = 1;
         String de;
+        int p = 0, p1 = 0, p2 = 0, p3 = 0;
         try {
             result = new ConnectDB(sendmsg).execute("studylist").get();//디비값을 가져오기
             oj = result.split("\t"); //db에 설문을 추가하면 row만큼 리사이클러뷰 생성
@@ -206,6 +217,10 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
             result3 = result3.replaceAll("\t", "");
             result4 = new ConnectDB(sendmsg4).execute("type_questions", UserInfo.usertypesum, String.valueOf(j)).get();//학습법 각 추천 수
             result4 = result4.replaceAll("\t", "");
+            Log.d("result4  ======", result4);
+            if(result4.equals("")){
+                p = 1;
+            }
             oj4 = result4.split("--");
             cut4 = oj4.length;
             result5 = new ConnectDB(sendmsg5).execute("type_log", UserInfo.usertypesum, String.valueOf(j)).get();//유형의 학습법 각 클릭수
@@ -213,12 +228,9 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
             oj5 = result5.split("--");
             cut5 = oj5.length;
             Log.d("return3", result3);
-            if(!result3.equals("null")){
+            if(UserInfo.usertypesum != null){
                 survey.setVisibility(GONE);
                 surveycom.setVisibility(View.VISIBLE);
-            }else{
-                survey.setVisibility(View.VISIBLE);
-                surveycom.setVisibility(GONE);
             }
             for (int i = 0; i < cut / 2; i++) {
 
@@ -226,22 +238,26 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
                 if(UserInfo.usertypesum == null){
                     DataType data = new DataType(i + 1, oj[i + j], oj[i + j + 1], "나의 유형 :  " + "empty " +"   surveycount : "+ "empty", "★", " ★");
                     adapter_study.addItem(data);
-                }else {
-                    if(i < cut4){
-                        float a = Float.parseFloat(oj4[i]);
-                        float b = Float.parseFloat(result3);
-                        percent = (a / b) * 100;
-                        spercent = String.format("%.2f", percent);
-                    }else{
-                        spercent = "★";
-                    }
-                    if(i < cut5){
-                        de = oj5[i];
-                    }else{
-                        de = "★";
-                    }
+                }
+                else {
+                    spercent = "★";
+                    de = "★";
+                    if(p == 0) {
+                        if (i < cut4) {
+                            float a = Float.parseFloat(oj4[i]);
+                            float b = Float.parseFloat(result3);
+                            percent = (a / b) * 100;
+                            spercent = String.format("%.2f", percent);
+                        } else {
+                            spercent = "★";
+                        }
 
-
+                        if (i < cut5) {
+                            de = oj5[i];
+                        } else {
+                            de = "★";
+                        }
+                    }
                     DataType data = new DataType(i + 1, oj[i + j], oj[i + j + 1], "나의 유형 : " + UserInfo.usertypesum+"   surveycount : "+ UserInfo.survey_position, spercent, de);
                     adapter_study.addItem(data);
                 }
