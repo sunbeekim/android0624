@@ -5,10 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".Fragment1_child1">
 
     <!-- TODO: Update blank fragment layout -->
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,16 +21,44 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/chatname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/outchat"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button_green"
+            android:text="채팅방나가기"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/chid"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:textColor="#ffffff"
             android:text="방이름" />
 
         <TextView
+            android:id="@+id/conncount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textColor="#ffffff"
             android:gravity="center"
             android:text="참여인원" />
 
@@ -35,18 +68,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="#00000000"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFffff"
+            android:background="#00000000"
             android:orientation="vertical">
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/mScroll"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:windowSoftInputMode="adjustPan"
+               >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -87,6 +123,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
                 android:ems="10"
+                android:textColor="#ffffff"
+
                 android:hint="메세지 입력"
 
                 android:inputType="textPersonName" />
@@ -94,25 +132,27 @@
 
             <Button
                 android:id="@+id/sendMsg2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@color/common_google_signin_btn_text_dark_disabled"
-                android:text="전송"
+                android:background="@drawable/send"
                 android:visibility="visible" />
 
             <Button
                 android:id="@+id/sendMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
-                android:background="@android:color/holo_orange_light"
+                android:background="@drawable/custom_button_green"
                 android:text="전송"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
                 android:visibility="gone" />
 
         </LinearLayout>
 
         <TextView
+            android:id="@+id/space"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:visibility="invisible" />

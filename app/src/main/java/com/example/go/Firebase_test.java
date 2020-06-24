@@ -117,6 +117,9 @@ public class Firebase_test extends AppCompatActivity { //로그인
         if (user != null) {
             Intent intent = new Intent(getApplicationContext(), AfterActivity.class);
             intent.putExtra("userId",user.getUid()); // 유저id 전달
+            String sendmsg = "userdisplayname";
+            String displayname = mAuth.getCurrentUser().getDisplayName();
+            String result  = String.valueOf(new ConnectDB(sendmsg).execute("userdisplayname", displayname));
             startActivity(intent);
 
         }

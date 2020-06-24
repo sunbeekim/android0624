@@ -20,8 +20,10 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/round4"
                 android:gravity="center"
-                android:text="ChatID" />
+                android:text="ChatID"
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/roomCode"
@@ -42,8 +44,10 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/round4"
                 android:gravity="center"
-                android:text="UserName" />
+                android:text="UserName"
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/setName"
@@ -65,14 +69,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="확인" />
+                android:background="@drawable/custom_button_green"
+                android:text="확인"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="닫기" />
+                android:background="@drawable/custom_button_red"
+                android:text="닫기"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

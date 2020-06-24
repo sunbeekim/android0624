@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="10"
+    android:background="@drawable/bgi"
     android:orientation="vertical"
     tools:context=".Fragment3">
 
@@ -13,7 +14,8 @@
         android:id="@+id/survey"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@android:color/holo_orange_dark"
+        android:layout_margin="5dp"
+        android:background="#00000000"
         android:text="설문하기_1"
         android:textColor="#FFFFFF"
         android:textSize="55sp"
@@ -23,7 +25,7 @@
         android:id="@+id/surveycom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@android:color/holo_orange_dark"
+        android:background="#00000000"
         android:gravity="center"
         android:text="설문완료"
         android:textColor="#FFFFFF"
@@ -34,7 +36,7 @@
         android:id="@+id/survey2"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@android:color/holo_orange_dark"
+        android:background="#00000000"
         android:gravity="center"
         android:text="설문하기_2"
         android:textColor="#FFFFFF"
@@ -48,7 +50,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <FrameLayout
                 android:id="@+id/fragment3child"

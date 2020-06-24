@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="5dp"
+    android:background="@drawable/custom_darkgray"
+    android:orientation="vertical"
+    tools:context=".Fragment2_ContentsAdapter">
+
+    <TextView
+        android:id="@+id/textView_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView_Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="타이틀"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView_Contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내용"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView_Period"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="기간"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView_Reward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="보상"
+        android:textColor="#B5960E"
+        android:textStyle="bold" />
+
+</LinearLayout>

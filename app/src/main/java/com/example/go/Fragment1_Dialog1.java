@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 //tab2 서비스 구현
 public class Fragment1_Dialog1 extends DialogFragment implements View.OnClickListener{
@@ -68,12 +69,16 @@ public class Fragment1_Dialog1 extends DialogFragment implements View.OnClickLis
                 }catch (Exception e){
 
                 }
-
+                fragmentRefresh();
                 break;
             case R.id.cancel:
                     DialogFragment dialogFragment = (DialogFragment) fragment;
                     dialogFragment.dismiss();
                 break;
         }
+    }
+    void fragmentRefresh(){
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container, Fragment1.newInstance()).commit();
     }
 }

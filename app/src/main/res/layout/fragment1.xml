@@ -17,15 +17,21 @@
             android:id="@+id/addRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:layout_weight="1"
-            android:text="RoomConn" />
+            android:background="@drawable/custom_button_green"
+            android:text="채팅방 연결"
+            android:textColor="#ffffff" />
 
         <Button
             android:id="@+id/makeRoom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="3dp"
             android:layout_weight="1"
-            android:text="RoomMake" />
+            android:background="@drawable/custom_button_red"
+            android:text="채팅방 생성"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <LinearLayout

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="grantTarget">
+        <item>선택</item>
+        <item>아버지</item>
+        <item>아들</item>
+        <item>어머니</item>
+        <item>동생</item>
+        <item>조카</item>
+    </string-array>
+</resources>

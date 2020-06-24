@@ -4,6 +4,7 @@ package com.example.go;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,8 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,7 +27,7 @@ import java.util.Date;
 import static android.view.View.GONE;
 
 //tab3 서비스 구현
-public class Fragment3 extends Fragment implements View.OnClickListener {
+public class Fragment3 extends Fragment implements View.OnClickListener, OnBackPressedListener {
 
     public static Fragment3 newInstance() {
         return new Fragment3();
@@ -41,12 +44,24 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
     RecyclerView recyclerView;
     FrameLayout frameLayout;
     Button survey, surveycom, survey2;
+    AfterActivity activity;
+    private FirebaseAuth mAuth ;
     //변경사항이 있을 때만 db출력 후 변경?
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View fv3 = inflater.inflate(R.layout.fragment3, container, false);
+        ActionBar actionBar = ((AfterActivity)getActivity()).getSupportActionBar();
+        actionBar.setTitle("설문");
+        actionBar.setDisplayHomeAsUpEnabled(false);
 
+
+        toast = Toast.makeText(getContext(),"한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT);
+        activity = (AfterActivity) getActivity();
+
+        mAuth = FirebaseAuth.getInstance();
+        String userId = mAuth.getUid();
+        UserInfo.userid = userId;
 
         survey = (Button) fv3.findViewById(R.id.survey);
         survey.setOnClickListener(this);
@@ -63,10 +78,14 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
         adapter_study = new SuperAdapter(CaseSelected.STUDY);
 
         recyclerView.setAdapter(adapter_study);
+
+
+
        // if(UserInfo.survey_position == null) {
-            if (getSurveyCechk().equals("")) {
+            if (getSurveyCechk() == null) {
                 nulldata();
             } else {
+                //UserInfo.usertypesum = getSurveyCechk();
                 getData();
             }
        // }
@@ -80,10 +99,14 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
                 }
         }
            // }
-        if (UserInfo.timecheck != null) {
-            Log.d("userinfotime", UserInfo.timecheck);
-            surveycom.setVisibility(View.VISIBLE);
+
+//        Log.d("survey_positon", UserInfo.survey_position);
+        if (UserInfo.survey_position.equals("2")) {
+
             survey2.setVisibility(GONE);
+            surveycom.setVisibility(View.VISIBLE);
+        }else{
+
         }
 
         return fv3;
@@ -166,23 +189,42 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
         return icheck;
     }
 
+
     private String getSurveyCechk() {
 
         String sendmsg2 = "typeget";
         String result2 = null;
         String[] oj;
+        String re = null;
         try {
             result2 = new ConnectDB(sendmsg2).execute("typeget", UserInfo.userid).get(); //typesum 가져오기
+            result2 = result2.replaceAll("\t", "");
             oj = result2.split("--");
-            oj[0] = result2.replaceAll("\t", "");
+            for(int i = 0; i < oj.length; i++){
+                Log.d("oj ==>",oj[i]);
+            }
+            //oj[0] = result2.replaceAll("\t", "");
 //            oj[1] = result2.replaceAll("\t", "");
             result2 = oj[0];
+            if(oj.length > 1){
+                oj[0] = oj[0].replaceAll("\t", "");
+                re = oj[0];
+                UserInfo.usertypesum = oj[0];
+                UserInfo.survey_position = oj[1];
+                UserInfo.user_typesum = oj[2]+"-"+oj[3]+"-"+oj[4];
+            }
+            else if(oj.length > 5){
+                UserInfo.timecheck = oj[5];
+                UserInfo.survey_position = oj[6];
+            }else{
+                UserInfo.survey_position = "0";
+            }
 
             Log.d("rest", result2);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return result2;
+        return re;
     }
 
     private void getData() {
@@ -235,7 +277,7 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
             for (int i = 0; i < cut / 2; i++) {
 
                 Log.d("return4", result4);
-                if(UserInfo.usertypesum == null){
+                if(UserInfo.usertypesum.equals("")){
                     DataType data = new DataType(i + 1, oj[i + j], oj[i + j + 1], "나의 유형 :  " + "empty " +"   surveycount : "+ "empty", "★", " ★");
                     adapter_study.addItem(data);
                 }
@@ -318,5 +360,25 @@ public class Fragment3 extends Fragment implements View.OnClickListener {
 //        addToBackStack(String name)을 호출하면 생성하는 childFragment 들이 차곡차곡 쌓여
 //        back 버튼을 누를 때마다 이전 Fragment로 순차적으로 돌아간다.
     }
+    long backKeyPressedTime;
+    Toast toast;
 
+
+    @Override
+    public void onBackPressed() {
+        if(System.currentTimeMillis() > backKeyPressedTime + 2000){
+            backKeyPressedTime = System.currentTimeMillis();
+            toast.show();
+            return;
+        } if(System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            getActivity().finish();
+            toast.cancel();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        activity.setOnBackPressedListener(this);
+    }
 }

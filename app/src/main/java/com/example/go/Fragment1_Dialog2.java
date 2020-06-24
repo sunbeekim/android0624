@@ -1,6 +1,8 @@
 package com.example.go;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,9 @@ import android.widget.Toast;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 //tab2 서비스 구현
 public class Fragment1_Dialog2 extends DialogFragment implements View.OnClickListener{
@@ -61,17 +66,21 @@ public class Fragment1_Dialog2 extends DialogFragment implements View.OnClickLis
                     String result = new ConnectDB(sendmsg).execute("chatmake", userid, chatName, username).get();
                     Log.d("data : ", userid+chatName+username);
                     Toast.makeText(getContext(), result, Toast.LENGTH_LONG).show();
-                    
                     dismiss();
+
                 }catch (Exception e){
 
                 }
-
+                fragmentRefresh();
                 break;
             case R.id.cancel2:
                     DialogFragment dialogFragment = (DialogFragment) fragment;
                     dialogFragment.dismiss();
                 break;
         }
+    }
+    void fragmentRefresh(){
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container, Fragment1.newInstance()).commit();
     }
 }

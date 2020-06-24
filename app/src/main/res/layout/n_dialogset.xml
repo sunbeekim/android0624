@@ -16,10 +16,13 @@
 
             <TextView
                 android:layout_width="80dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/round4"
                 android:gravity="center"
-                android:text="ChatName" />
+                android:text="ChatName"
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/chatName"
@@ -38,10 +41,13 @@
 
             <TextView
                 android:layout_width="80dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/round4"
                 android:gravity="center"
-                android:text="UserName" />
+                android:text="UserName"
+                android:textSize="12sp" />
 
             <EditText
                 android:id="@+id/setName2"
@@ -62,14 +68,18 @@
                 android:id="@+id/done2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_green"
                 android:text="확인" />
 
             <Button
                 android:id="@+id/cancel2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="1dp"
                 android:layout_weight="1"
+                android:background="@drawable/custom_button_red"
                 android:text="닫기" />
         </LinearLayout>
     </LinearLayout>

@@ -4,10 +4,10 @@
 
     <item
         android:id="@+id/tab1"
-        app:showAsAction="ifRoom"
         android:enabled="true"
-        android:icon="@drawable/likes"
-        android:title="채팅"/>
+        android:icon="@drawable/message"
+        android:title="채팅"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/tab2"

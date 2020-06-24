@@ -2,12 +2,8 @@
 <resources>
     <color name="colorPrimary">#ff9800</color>
     <color name="colorPrimaryDark">#e65100</color>
-    <color name="colorAccent">#ff4081</color>
+    <color name="colorAccent">#ffffff</color>
     <color name="darkred">#8B0000</color>
     <color name="brown">#A52A2A</color>
-
-
-
-
-
+    <color name="white">#FFFFFF</color>
 </resources>

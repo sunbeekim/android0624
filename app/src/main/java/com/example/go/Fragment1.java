@@ -1,17 +1,25 @@
 package com.example.go;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,20 +27,29 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.Stack;
+
 import static android.view.View.GONE;
 
 //tab1 서비스 구현
-public class Fragment1 extends Fragment implements View.OnClickListener {
+public class Fragment1 extends Fragment implements View.OnClickListener, OnBackPressedListener{
 
 
     public static Fragment1 newInstance() {
         return new Fragment1();
     }
+    AfterActivity activity;
+    long backKeyPressedTime;
+    Toast toast;
 
 
 
     SuperAdapter adapter_room;
     RecyclerView recyclerViewRoom;
+
+
+
+
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,6 +57,13 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
         final View fv1 = inflater.inflate(R.layout.fragment1, container, false);
         // Inflate the layout for this fragment
 
+        ActionBar actionBar = ((AfterActivity)getActivity()).getSupportActionBar();
+        actionBar.setTitle("채팅");
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        //actionBar.setBackgroundDrawable(new ColorDrawable(R.drawable.mantle));
+
+        activity = (AfterActivity) getActivity();
+        toast = Toast.makeText(getContext(),"한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT);
 
         final Button addRoom, makeRoom;
 
@@ -89,10 +113,13 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
         //채팅방 생성 버튼 -> 채팅방이 2개 이상이면 return 아니면 생성 -> QRcode? randomcode? Uid?
         //채팅방 접속 버튼 -> Fragment_child1 or Fragment_child2 클릭리스너 통해 보내기
 
+
         return fv1;
     }
 
     private void getChat() {
+        adapter_room.items.clear();
+
         String sendmsg = "getuserinfo";
         String result; //전체출력 result;
         String[] oj;
@@ -101,15 +128,40 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
         try{
             result  = new ConnectDB(sendmsg).execute("getuserinfo", UserInfo.userid).get();// 사용자의 채팅방 정보 가져오기
             oj = result.split("--"); //
-            cut = oj.length;
+            cut = oj.length; // 1 row당 컬럼 4개
 
 
-            for(int i = 0; i < cut/3; i++) {
+            for(int i = 0; i < cut/4; i++) {
 
-                Log.d("test", oj[i*3]+oj[(i*3)+1]+ Integer.parseInt(oj[i*3+2]));
-                DataType data = new DataType(oj[i*3], oj[i*3+1], Integer.parseInt(oj[i*3+2]));
+                Log.d("test", oj[i*4]+oj[(i*4)+1]+ Integer.parseInt(oj[i*4+2]));
+                DataType data = new DataType(oj[i*4], oj[i*4+1], Integer.parseInt(oj[i*4+2]));
+
+                //0 - 1 - 2
+                //4 - 5 - 6
                 adapter_room.addItem(data);
                 adapter_room.notifyDataSetChanged();
+
+            }
+            if(cut/4 == 1) {
+                ChatInfo.chatname_1 = oj[0 * 4];
+                ChatInfo.chatuser_1 = oj[0*4+2];
+                ChatInfo.chatid_1 = oj[0 * 4 + 3];
+                ChatInfo.chatname_2 = null;
+                ChatInfo.chatuser_2 = null;
+                ChatInfo.chatid_2 = null;
+            }
+            else if(cut/4 == 2){
+                ChatInfo.chatname_1 = oj[0 * 4];
+                ChatInfo.chatuser_1 = oj[0*4+2];
+                ChatInfo.chatid_1 = oj[0 * 4 + 3];
+                ChatInfo.chatname_2 = oj[1 * 4];
+                ChatInfo.chatuser_2 = oj[1*4+2];
+                ChatInfo.chatid_2 = oj[1 * 4 + 3];
+                Log.d("chatid_1", ChatInfo.chatid_1);
+                Log.d("chatid_2", ChatInfo.chatid_2);
+            }else{
+                ChatInfo.chatid_1 = null;
+                ChatInfo.chatid_2 = null;
             }
 
         }catch (Exception e){
@@ -126,7 +178,6 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
             childF3.addToBackStack(null);
             childF3.commit();
         }
-
     }
 
     @Override
@@ -144,6 +195,7 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
             case R.id.makeRoom:
                 Fragment1_Dialog2 dialog2 = new Fragment1_Dialog2();
                 dialog2.show(this.getActivity().getSupportFragmentManager(), "tag2");
+
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + v.getId());
@@ -152,4 +204,21 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        if(System.currentTimeMillis() > backKeyPressedTime + 2000){
+            backKeyPressedTime = System.currentTimeMillis();
+            toast.show();
+            return;
+        } if(System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            getActivity().finish();
+            toast.cancel();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        activity.setOnBackPressedListener(this);
+    }
 }

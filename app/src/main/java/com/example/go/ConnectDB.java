@@ -92,6 +92,24 @@ public class ConnectDB extends AsyncTask<String, Void, String> { //비동기 처
             }else if(sendMsg.equals("survey2result")){//
                 sendMsg = "&type="+strings[0]+"&survey2result="+strings[1]; //roommake button done event!
             }
+            else if(sendMsg.equals("userdisplayname")){
+                    sendMsg = "&type="+strings[0]+"&sendname="+strings[1]+"&recivername="+strings[2]+"&title="+strings[3]+"&contents="+strings[4]+"&data_pre="+strings[5]+"&data_cur="+strings[6]+"&reward="+strings[7];
+            }
+            else if(sendMsg.equals("outchat")){//
+                sendMsg = "&type="+strings[0]+"&userid="+strings[1]+"&chatid="+strings[2]; //roommake button done event!
+            }
+            else if(sendMsg.equals("grant")){
+                sendMsg = "&type="+strings[0]+"&sender="+strings[1];
+            }
+            else if(sendMsg.equals("receiver")){
+                sendMsg = "&type="+strings[0]+"&receiver="+strings[1];
+            }
+            else if(sendMsg.equals("dusername")){
+                sendMsg = "&type="+strings[0]+"&dusername="+strings[1];
+            }
+            else if(sendMsg.equals("spinner")){
+                sendMsg = "&type="+strings[0]+"&spinner="+strings[1];
+            }
 
 
 
